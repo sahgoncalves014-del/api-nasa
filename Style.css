@@ -52,7 +52,8 @@ body {
   height: 100%;
   display: block;
   margin: 0 auto;
-  max-height: 80vh;
+  max-height: 60vh;
+  max-height: 200vh;
   object-fit: cover;
 }
 
@@ -72,36 +73,33 @@ a {
     
     
     
-    <style>
-         {
-            background-color: #f8f9fa;
-        }
+  
 
-        .card-country {
-            background-color: #ffffff;
-            border: 1px solid #dee2e6;
-            border-radius: 10px;
-            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
+  .card-country {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
 
-        .card-country img.flag {
-            border-radius: 10px;
-        }
+  .card-country img.flag {
+    border-radius: 10px;
+  }
 
-        .card-country .card-body {
-            padding: 15px;
-        }
+  .card-country .card-body {
+    padding: 15px;
+  }
 
-        .card-country h5 {
-            margin-top: 10px;
-        }
+  .card-country h5 {
+    margin-top: 10px;
+  }
 
-        .coat-of-arms {
-            display: block;
-            margin: 15px auto;
-            max-width: 80px;
-        }
+  .coat-of-arms {
+    display: block;
+    margin: 15px auto;
+    max-width: 80px;
+  }
 
 .card-country {
     background: linear-gradient(145deg, #1c1c44, #3a0d0d);
