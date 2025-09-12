@@ -1,3 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Projeto da Nasa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link rel="stylesheet" href="fotos_dia.css">
+  </head>
+  
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" id="menu">
+  <div class="container-fluid">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/NASA_logo.svg" alt="Logo NASA" class="btn-link" onclick="window.location.href = 'Index.html'">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" onclick="window.location.href='fotos_dia.html'" href="#">Fotos do Dia</a>
+        <a class="nav-link" onclick="window.location.href='fotos_marte.html'" href="#">Fotos de Marte</a>
+        <a class="nav-link" onclick="window.location.href='curiosidades.html'" href="#">Curiosidades</a>
+        <a class="nav-link" onclick="window.location.href='sobre_projeto.html'" href="#">Sobre o Projeto</a>
+        <a class="nav-link" onclick="window.location.href='contato.html'" href="#">Fale Conosco</a>
+      </div>
+    </div>  
+  </div>
+</nav>
+
 <script>
-  document.write("Deu certo tontona")
+  
+  const KEY = "ho4osz6MLJFUKyccFsahLrXyXz4NxOzbiEsTvMqo";
+
+fetch(`https://api.nasa.gov/planetary/apod?api_key=${KEY}`)
+  .then(res => res.json())
+  .then(data => {
+    // Aqui você pode usar os dados para colocar no seu site
+    console.log(data); // só pra testar e ver o JSON
+
+    // Exemplo de colocar no HTML
+    document.getElementById("titulo").textContent = data.title;
+    document.getElementById("foto").src = data.url;
+    document.getElementById("descricao").textContent = data.explanation;
+  })
+  .catch(err => console.error(err));
+  
 </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  </body>
+</html>

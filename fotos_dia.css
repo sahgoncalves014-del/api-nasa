@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, black 25%, #00008B );
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+.navbar {
+    background: linear-gradient(90deg, #00008B 0.3%, black );
+    box-shadow: 0 2px 5px #8b0000, #0b0c2a;
+}
+
+.navbar .nav-link {
+    color: #ffffff ;
+}
+
+.navbar .nav-link:hover {
+    color: #ffd700 ; 
+}
+
+.navbar .navbar-nav .nav-link {
+    color: #ffffff !important;
+    margin-right: 15px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.navbar .navbar-nav .nav-link:hover {
+    color: #ffd700 !important;
+}
+
+.navbar-toggler-icon {
+    filter: invert(1); 
+}
+
+.navbar img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
