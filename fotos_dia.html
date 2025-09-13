@@ -11,7 +11,7 @@
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary" id="menu">
   <div class="container-fluid">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/NASA_logo.svg" alt="Logo NASA" class="btn-link" onclick="window.location.href = 'Index.html'">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/NASA_logo.svg" alt="Logo NASA" class="btn-link" onclick="window.location.href = 'index.html'">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -58,7 +58,7 @@ function ultimosDias(n) {
   return datas;
 }
 
-async function carregarFotos(qtdDias = 12) { 
+async function carregarFotos(qtdDias = 12) {
   const galeria = document.getElementById("galeria");
   galeria.innerHTML = "";
 
@@ -77,23 +77,25 @@ async function carregarFotos(qtdDias = 12) {
         img.src = foto.url;
         img.alt = `Foto do dia ${data}`;
         card.appendChild(img);
-
-        const legenda = document.createElement("p");
-        legenda.textContent = `${data}: ${foto.title}`;
-        card.appendChild(legenda);
-
       } else if(foto.media_type === "video"){
         const link = document.createElement("a");
         link.href = foto.url;
         link.target = "_blank";
-        link.textContent = `Vídeo do dia ${data}`;
+        link.textContent = "Clique para ver o vídeo";
         link.style.color = "#00cfff";
         card.appendChild(link);
-
-        const legenda = document.createElement("p");
-        legenda.textContent = `${data}: ${foto.title}`;
-        card.appendChild(legenda);
       }
+
+      const dataEl = document.createElement("p");
+      dataEl.textContent = data;
+      dataEl.style.fontWeight = "bold";
+      dataEl.style.marginTop = "5px";
+      card.appendChild(dataEl);
+
+      const tituloEl = document.createElement("p");
+      tituloEl.textContent = foto.title;
+      tituloEl.style.marginTop = "3px";
+      card.appendChild(tituloEl);
 
       galeria.appendChild(card);
 
@@ -103,7 +105,7 @@ async function carregarFotos(qtdDias = 12) {
   }
 }
 
-carregarFotos(12); 
+carregarFotos(12);
 
 </script>
 
