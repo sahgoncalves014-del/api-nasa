@@ -26,24 +26,47 @@
     </div>  
   </div>
 </nav>
+<!-- Card para mostrar a foto do dia -->
+<div class="card" style="width: 18rem;" id="card-nasa">
+  <img id="foto" class="card-img-top" src="" alt="Foto do Dia">
+  <div class="card-body">
+    <h5 class="card-title" id="titulo">Carregando...</h5>
+    <p class="card-text" id="descricao"></p>
+  </div>
+</div>
 
 <script>
-  
-  const KEY = "ho4osz6MLJFUKyccFsahLrXyXz4NxOzbiEsTvMqo";
+const KEY = "v6mwGEzjfWieSldtxAbmeOEPmk8K3sH1vSd25bLg";
 
 fetch(`https://api.nasa.gov/planetary/apod?api_key=${KEY}`)
   .then(res => res.json())
   .then(data => {
-    // Aqui você pode usar os dados para colocar no seu site
-    console.log(data); // só pra testar e ver o JSON
+    console.log(data); // ver o JSON no console
 
-    // Exemplo de colocar no HTML
+    // Se for imagem, mostra no card
+    if(data.media_type === "image"){
+      document.getElementById("foto").src = data.url;
+    } 
+    // Se for vídeo, mostra link
+    else if(data.media_type === "video"){
+      document.getElementById("foto").remove(); // remove a imagem
+      const card = document.getElementById("card-nasa");
+      const videoLink = document.createElement("a");
+      videoLink.href = data.url;
+      videoLink.textContent = "Clique aqui para ver o vídeo";
+      videoLink.target = "_blank";
+      card.querySelector(".card-body").prepend(videoLink);
+    }
+
+    // Coloca título e descrição
     document.getElementById("titulo").textContent = data.title;
-    document.getElementById("foto").src = data.url;
     document.getElementById("descricao").textContent = data.explanation;
   })
-  .catch(err => console.error(err));
-  
+  .catch(err => {
+    console.error(err);
+    document.getElementById("titulo").textContent = "Erro ao carregar a foto";
+    document.getElementById("descricao").textContent = "";
+  });
 </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
