@@ -62,9 +62,9 @@ a {
     text-decoration: none;
 }
 
-    .navbar-nav .nav-link
+ .navbar-nav .nav-link
 
-  .card-country {
+.card-country {
     background-color: #ffffff;
     border: 1px solid #dee2e6;
     border-radius: 10px;
@@ -97,6 +97,7 @@ a {
     margin-bottom: 20px;
     overflow: hidden;
     transition: transform 0.3s;
+  
 }
 
 .card-country:hover {
