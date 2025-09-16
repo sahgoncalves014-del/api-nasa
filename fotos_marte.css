@@ -41,55 +41,6 @@ body {
     margin-right: 10px;
 }
 
-.carousel-item {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.carousel-item img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  margin: 0 auto;
-  max-height: 80vh;
-  max-width: 300vh;
-  object-fit: cover;
-}
-
-
-a {
-    text-decoration: none;
-}
-
-.navbar-nav .nav-link
-
-.card-country {
-    background-color: #ffffff;
-    border: 1px solid #dee2e6;
-    border-radius: 10px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-}
-
-.card-country img.flag {
-    border-radius: 10px;
-}
-
-.card-country .card-body {
-    padding: 15px;
-}
-
-.card-country h5 {
-    margin-top: 10px;
-}
-
-.coat-of-arms {
-    display: block;
-    margin: 15px auto;
-    max-width: 80px;
-}
-
 .card-country {
     background: linear-gradient(145deg, #1c1c44, #3a0d0d);
     border-radius: 15px;
@@ -97,7 +48,6 @@ a {
     margin-bottom: 20px;
     overflow: hidden;
     transition: transform 0.3s;
-  
 }
 
 .card-country:hover {
@@ -105,10 +55,10 @@ a {
 }
 
 .card-country img.flag {
-    border-radius: 10px;
     width: 100%;
     height: 200px;
-    object-fit: cover;
+    object-fit: cover; /* preenche o card sem deformar */
+    border-radius: 10px;
 }
 
 .card-country .card-body {
@@ -122,20 +72,4 @@ a {
 
 .card-country p {
     color: #cccccc;
-}
-
-.card-country .btn-link {
-    display: inline-block;
-    margin-top: 10px;
-    color: #00cfff;
-    text-decoration: underline;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 0.9rem;
-    padding: 0;
-}
-
-.card-country .btn-link:hover {
-    color: #ff4444;
 }

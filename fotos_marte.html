@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Projeto da Nasa</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-        <link rel="stylesheet" href="Index.css">
+        <link rel="stylesheet" href="fotos_marte.css">
   </head>
   
   <body>
@@ -19,17 +19,86 @@
       <div class="navbar-nav">
         <a class="nav-link" onclick="window.location.href='fotos_dia.html'" href="#">Fotos do Dia</a>
         <a class="nav-link" onclick="window.location.href='fotos_marte.html'" href="#">Fotos de Marte</a>
-        <a class="nav-link" onclick="window.location.href='curiosidades.html'" href="#">Curiosidades</a>
+        <a class="nav-link" onclick="window.location.href='asteroides.html'" href="#">Asteroides</a>
         <a class="nav-link" onclick="window.location.href='sobre_projeto.html'" href="#">Sobre o Projeto</a>
         <a class="nav-link" onclick="window.location.href='contato.html'" href="#">Fale Conosco</a>
       </div>
     </div>  
   </div>
 </nav>
+<div id="mars-gallery" class="row g-0"></div>
 
 <script>
-  document.write("Fotos de Marte")
+const KEY = "v6mwGEzjfWieSldtxAbmeOEPmk8K3sH1vSd25bLg";
+const galeria = document.getElementById("mars-gallery");
+galeria.innerHTML = "";
+
+async function carregarFotosMarte() {
+  try {
+    // Pega fotos recentes do rover Curiosity
+    const res = await fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/latest_photos?api_key=${KEY}`);
+    const data = await res.json();
+
+    if (!data.latest_photos || data.latest_photos.length === 0) {
+      galeria.innerHTML = "<p>❌ Nenhuma foto de Marte disponível no momento.</p>";
+      return;
+    }
+
+    const fotosUsadas = new Set();
+    const fotosSelecionadas = [];
+
+    // Seleciona fotos únicas por câmera para evitar repetição
+    for (const foto of data.latest_photos) {
+      if (fotosUsadas.has(foto.camera.name)) continue;
+      fotosUsadas.add(foto.camera.name);
+      fotosSelecionadas.push(foto);
+      if (fotosSelecionadas.length >= 4) break;
+    }
+
+    fotosSelecionadas.forEach(foto => {
+      const col = document.createElement("div");
+      col.classList.add("col-md-3", "p-2"); // cada card ocupa 1/4 da linha e sem espaçamento extra
+
+      const card = document.createElement("div");
+      card.classList.add("card-country");
+
+      // imagem
+      const img = document.createElement("img");
+      img.src = foto.img_src;
+      img.alt = foto.camera.full_name;
+      img.classList.add("flag");
+      card.appendChild(img);
+
+      // corpo do card
+      const cardBody = document.createElement("div");
+      cardBody.classList.add("card-body");
+
+      const titulo = document.createElement("h5");
+      titulo.textContent = foto.camera.full_name;
+      cardBody.appendChild(titulo);
+
+      const texto = document.createElement("p");
+      texto.textContent = `O rover ${foto.rover.name} capturou esta imagem usando a câmera ${foto.camera.full_name}.`;
+      cardBody.appendChild(texto);
+
+      const dataEl = document.createElement("p");
+      dataEl.textContent = foto.earth_date;
+      cardBody.appendChild(dataEl);
+
+      card.appendChild(cardBody);
+      col.appendChild(card);
+      galeria.appendChild(col);
+    });
+
+  } catch (err) {
+    console.error("Erro ao carregar fotos de Marte", err);
+    galeria.innerHTML = "<p>❌ Erro ao carregar as fotos.</p>";
+  }
+}
+
+carregarFotosMarte();
 </script>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   </body>

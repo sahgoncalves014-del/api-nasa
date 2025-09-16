@@ -173,3 +173,19 @@ body {
         grid-template-columns: 1fr; 
     }
 }
+
+.nasa-video-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 12px;
+  background-color: #00cfff;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.nasa-video-btn:hover {
+  background-color: #ff4444;
+}

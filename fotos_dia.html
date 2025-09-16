@@ -1,114 +1,124 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Projeto da Nasa</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-        <link rel="stylesheet" href="fotos_dia.css">
-  </head>
-  
-  <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary" id="menu">
-  <div class="container-fluid">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/NASA_logo.svg" alt="Logo NASA" class="btn-link" onclick="window.location.href = 'index.html'">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link" onclick="window.location.href='fotos_dia.html'" href="#">Fotos do Dia</a>
-        <a class="nav-link" onclick="window.location.href='fotos_marte.html'" href="#">Fotos de Marte</a>
-        <a class="nav-link" onclick="window.location.href='curiosidades.html'" href="#">Curiosidades</a>
-        <a class="nav-link" onclick="window.location.href='sobre_projeto.html'" href="#">Sobre o Projeto</a>
-        <a class="nav-link" onclick="window.location.href='contato.html'" href="#">Fale Conosco</a>
-      </div>
-    </div>  
-  </div>
-</nav>
-
-
-<div class="card-country">
-  <img src="https://images.unsplash.com/photo-1581091012184-66e29b7a65d2?auto=format&fit=crop&w=600&h=400&q=80" alt="Telescópio Hubble">
-  <div class="card-body">
-    <h5>Curiosidade sobre o Hubble</h5>
-    <p>
-      O Telescópio Espacial Hubble é um dos instrumentos mais famosos da astronomia moderna. Lançado em 1990, ele orbita a Terra e consegue capturar imagens detalhadas do universo sem a interferência da atmosfera. Graças ao Hubble, cientistas puderam observar galáxias distantes, formar mapas precisos de estrelas e descobrir exoplanetas. Cada fotografia capturada revela detalhes incríveis do cosmos que nunca poderíamos ver da superfície da Terra, nos mostrando a verdadeira grandiosidade do universo.
-    </p>
-  </div>
-</div>
-
-<div id="galeria"></div>
-
+<html lang="en"> 
+ <head> 
+  <meta charset="utf-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <title>Projeto da Nasa</title> 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"> 
+  <link rel="stylesheet" href="fotos_dia.css"> 
+ </head> 
+ <body> 
+  <nav class="navbar navbar-expand-lg bg-body-tertiary" id="menu"> 
+   <div class="container-fluid"> 
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/NASA_logo.svg" alt="Logo NASA" class="btn-link" onclick="window.location.href = 'index.html'"> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button> 
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup"> 
+     <div class="navbar-nav"> <a class="nav-link" onclick="window.location.href='fotos_dia.html'" href="#">Fotos do Dia</a> <a class="nav-link" onclick="window.location.href='fotos_marte.html'" href="#">Fotos de Marte</a> <a class="nav-link" onclick="window.location.href='Asteroides.html'" href="#">Asteroides</a> <a class="nav-link" onclick="window.location.href='sobre_projeto.html'" href="#">Sobre o Projeto</a> <a class="nav-link" onclick="window.location.href='contato.html'" href="#">Fale Conosco</a> 
+     </div> 
+    </div> 
+   </div> 
+  </nav> 
+  <div class="card-country"> 
+   <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/HST-SM4.jpeg" alt="Telescópio Hubble"> 
+   <div class="card-body"> 
+    <h5>Curiosidade sobre o Hubble</h5> 
+    <p> O Telescópio Espacial Hubble é um dos instrumentos mais famosos da astronomia moderna. Lançado em 1990, ele orbita a Terra e consegue capturar imagens detalhadas do universo sem a interferência da atmosfera. Graças ao Hubble, cientistas puderam observar galáxias distantes, formar mapas precisos de estrelas e descobrir exoplanetas. Cada fotografia capturada revela detalhes incríveis do cosmos que nunca poderíamos ver da superfície da Terra, nos mostrando a verdadeira grandiosidade do universo. </p> 
+   </div> 
+  </div> 
+  <div id="galeria"></div> 
 <script>
   const KEY = "v6mwGEzjfWieSldtxAbmeOEPmk8K3sH1vSd25bLg";
 
-function formatarData(data) {
-  return data.toISOString().split('T')[0];
-}
-
-function ultimosDias(n) {
-  const datas = [];
-  const hoje = new Date();
-  for(let i = 0; i < n; i++){
-    const dia = new Date();
-    dia.setDate(hoje.getDate() - i);
-    datas.push(formatarData(dia));
+  function formatarData(data) {
+    return data.toISOString().split('T')[0];
   }
-  return datas;
-}
 
-async function carregarFotos(qtdDias = 12) {
-  const galeria = document.getElementById("galeria");
-  galeria.innerHTML = "";
+  function ultimosDias(n) {
+    const datas = [];
+    const hoje = new Date();
+    for (let i = 0; i < n; i++) {
+      const dia = new Date();
+      dia.setDate(hoje.getDate() - i);
+      datas.push(formatarData(dia));
+    }
+    return datas;
+  }
 
-  const datas = ultimosDias(qtdDias);
+  async function carregarFotos(qtdDias = 12) {
+    const galeria = document.getElementById("galeria");
+    galeria.innerHTML = "";
 
-  for(const data of datas){
-    try {
-      const res = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${KEY}&date=${data}`);
-      const foto = await res.json();
+    const datas = ultimosDias(qtdDias);
 
-      const card = document.createElement("div");
-      card.classList.add("nasa-card");
+    for (const data of datas) {
+      try {
+        const res = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${KEY}&date=${data}`);
+        const foto = await res.json();
 
-      if(foto.media_type === "image"){
-        const img = document.createElement("img");
-        img.src = foto.url;
-        img.alt = `Foto do dia ${data}`;
-        card.appendChild(img);
-      } else if(foto.media_type === "video"){
-        const link = document.createElement("a");
-        link.href = foto.url;
-        link.target = "_blank";
-        link.textContent = "Clique para ver o vídeo";
-        link.style.color = "#00cfff";
-        card.appendChild(link);
+        console.log(foto); // 👀 ver resposta da NASA no console
+
+        const card = document.createElement("div");
+        card.classList.add("nasa-card");
+
+        if (foto.media_type === "image") {
+          const img = document.createElement("img");
+          img.src = foto.url || foto.hdurl;
+          img.alt = `Foto do dia ${data}`;
+          card.appendChild(img);
+
+        } else if (foto.media_type === "video") {
+          const link = document.createElement("a");
+          link.href = foto.url;
+          link.target = "_blank";
+          link.textContent = "▶ Assistir vídeo";
+          link.style.display = "inline-block";
+          link.style.padding = "10px 15px";
+          link.style.marginTop = "8px";
+          link.style.backgroundColor = "#001f4d"; // azul escuro
+          link.style.color = "#fff";
+          link.style.textDecoration = "none";
+          link.style.borderRadius = "8px";
+          link.style.fontWeight = "bold";
+          link.style.textAlign = "center";
+          link.style.transition = "0.3s";
+
+          // efeito hover
+          link.onmouseover = () => link.style.backgroundColor = "#000d26";
+          link.onmouseout = () => link.style.backgroundColor = "#001f4d";
+
+          card.appendChild(link);
+
+        } else {
+          const aviso = document.createElement("p");
+          aviso.textContent = "Mídia não disponível para esta data";
+          aviso.style.color = "red";
+          aviso.style.fontWeight = "bold";
+          aviso.style.marginTop = "10px";
+          card.appendChild(aviso);
+        }
+
+        const dataEl = document.createElement("p");
+        dataEl.textContent = data;
+        dataEl.style.fontWeight = "bold";
+        dataEl.style.marginTop = "5px";
+        card.appendChild(dataEl);
+
+        const tituloEl = document.createElement("p");
+        tituloEl.textContent = foto.title;
+        tituloEl.style.marginTop = "3px";
+        card.appendChild(tituloEl);
+
+        galeria.appendChild(card);
+
+      } catch (err) {
+        console.error("Erro ao carregar foto do dia", data, err);
       }
-
-      const dataEl = document.createElement("p");
-      dataEl.textContent = data;
-      dataEl.style.fontWeight = "bold";
-      dataEl.style.marginTop = "5px";
-      card.appendChild(dataEl);
-
-      const tituloEl = document.createElement("p");
-      tituloEl.textContent = foto.title;
-      tituloEl.style.marginTop = "3px";
-      card.appendChild(tituloEl);
-
-      galeria.appendChild(card);
-
-    } catch(err){
-      console.error("Erro ao carregar foto do dia", data, err);
     }
   }
-}
 
-carregarFotos(12);
-
+  carregarFotos(12);
 </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-  </body>
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>  
+ </body>
 </html>
