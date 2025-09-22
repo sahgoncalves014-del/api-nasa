@@ -1,138 +1,155 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Projeto da Nasa</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-        <link rel="stylesheet" href="Index.css">
-  </head>
-  
-  <body>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="Index.css">
+</head>
+
+<body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary" id="menu">
-  <div class="container-fluid">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/NASA_logo.svg" alt="Logo NASA" class="logo">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link" onclick="window.location.href='fotos_dia.html'" href="#">Fotos do Dia</a>
-        <a class="nav-link" onclick="window.location.href='fotos_marte.html'" href="#">Fotos de Marte</a>
-        <a class="nav-link" onclick="window.location.href='Asteroides.html'" href="#">Asteroides</a>
-        <a class="nav-link" onclick="window.location.href='sobre_projeto.html'" href="#">Sobre o Projeto</a>
-        <a class="nav-link" onclick="window.location.href='contato.html'" href="#">Fale Conosco</a>
-      </div>
-    </div>  
-  </div>
-</nav>
-   
- <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="https://static.nationalgeographicbrasil.com/files/styles/image_3200/public/nationalgeographic_2808031_bx.jpg?w=1900&amp;h=1050" class="d-block w-100" alt="Estrelas no espaço">
-    </div>
-    <div class="carousel-item">
-      <img src="https://static.nationalgeographicbrasil.com/files/styles/image_3200/public/nationalgeographic_2808031_bx.jpg?w=1900&amp;h=1050" class="d-block w-100 " alt="Nebulosa colorida">
-    </div>
-    <div class="carousel-item">
-      <img src="https://static.nationalgeographicbrasil.com/files/styles/image_3200/public/nationalgeographic_2808031_bx.jpg?w=1900&amp;h=1050" alt="Galáxia distante">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-
-<div class="container mt-4">
-  <div class="row">
-
-    <div class="col-md-4">
-      <div class="card-country">
-        <img src="https://images.unsplash.com/photo-1473929735479-1f12751b6f59?auto=format&fit=crop&w=1200&q=80" class="flag img-fluid" alt="Planeta vermelho">
-        <div class="card-body">
-          <h5>Fobos</h5>
-          <p>Uma das luas de Marte</p>
-          <p>Distância: 9.378 km da superfície marciana</p>
-          <p><strong>Observado: Sonda Mars Express</strong></p>
+        <div class="container-fluid">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/NASA_logo.svg" alt="Logo NASA" class="logo">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link" onclick="window.location.href='fotos_dia.html'" href="#">Fotos do Dia</a>
+                    <a class="nav-link" onclick="window.location.href='fotos_marte.html'" href="#">Fotos de Marte</a>
+                    <a class="nav-link" onclick="window.location.href='Asteroides.html'" href="#">Asteroides</a>
+                    <a class="nav-link" onclick="window.location.href='sobre_projeto.html'" href="#">Sobre o Projeto</a>
+                    <a class="nav-link" onclick="window.location.href='contato.html'" href="#">Fale Conosco</a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
+    </nav>
 
-    <div class="col-md-4">
-      <div class="card-country">
-        <img src="https://images.unsplash.com/photo-1454789548928-9efd52dc4031?auto=format&fit=crop&w=1200&q=80" class="flag img-fluid" alt="Nebulosa">
-        <div class="card-body">
-          <h5>Nebulosa de Órion</h5>
-          <p>Uma das nebulosas mais brilhantes do céu</p>
-          <p>Distância: 1.344 anos-luz da Terra</p>
-          <p><strong>Observado: Telescópio Espacial Hubble</strong></p>
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://marsemfim.com.br/wp-content/uploads/2014/12/terra.jpg.webp"
+                    class="d-block w-90" alt="Terra">
+            </div>
+            <div class="carousel-item">
+                <img src="https://static.nationalgeographicbrasil.com/files/styles/image_3200/public/nationalgeographic_2808031_bx.jpg?w=1900&amp;h=1050"
+                    class="d-block w-100 " alt="Nebulosa colorida">
+            </div>
+            <div class="carousel-item">
+                <img src="https://p4.wallpaperbetter.com/wallpaper/82/929/144/planet-mars-4k-8k-wallpaper-preview.jpg"
+                    alt="Marte">
+            </div>
         </div>
-      </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
 
-    <div class="col-md-4">
-      <div class="card-country">
-        <img src="https://static.nationalgeographicbrasil.com/files/styles/image_3200/public/nationalgeographic_2808031_bx.jpg?w=1900&h=1050" class="flag img-fluid" alt="Galáxia">
-        <div class="card-body">
-          <h5>Earendel</h5>
-          <p>A estrela mais distante já observada</p>
-          <p>Distância: 12,9 bilhões de anos-luz da Terra</p>
-          <p><strong>Responsável: Telescópio Espacial Hubble</strong></p>
+    <div class="container mt-4">
+        <div class="row">
+
+            <div class="col-md-4">
+                <div class="card-country">
+                    <img src="https://g1.globo.com/Noticias/Ciencia/foto/0,,15194287,00.jpg"
+                        class="flag img-fluid" alt="Planeta vermelho">
+                    <div class="card-body">
+                        <h5>Fobos</h5>
+                        <p>Uma das luas de Marte</p>
+                        <p>Distância: 9.378 km da superfície marciana</p>
+                        <p><strong>Observado: Sonda Mars Express</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card-country">
+                    <img src="https://t.ctcdn.com.br/lAjyX238DnBXsVYVWOX5kmq1Bhc=/640x360/smart/i805731.png"
+                        class="flag img-fluid" alt="Nebulosa">
+                    <div class="card-body">
+                        <h5>Nebulosa de Órion</h5>
+                        <p>Uma das nebulosas mais brilhantes do céu</p>
+                        <p>Distância: 1.344 anos-luz da Terra</p>
+                        <p><strong>Observado: Telescópio Espacial Hubble</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card-country">
+                    <img src="https://www.futura-sciences.com/en/wp-content/uploads/2025/09/Earendel-seen-by-AI_gemini.jpeg"
+                        class="flag img-fluid" alt="Galáxia">
+                    <div class="card-body">
+                        <h5>Earendel</h5>
+                        <p>A estrela mais distante já observada</p>
+                        <p>Distância: 12,9 bilhões de anos-luz da Terra</p>
+                        <p><strong>Responsável: Telescópio Espacial Hubble</strong></p>
+                    </div>
+                </div>
+            </div>
+
         </div>
-      </div>
     </div>
 
-  </div>
-</div>
+    <div class="container mt-4">
+        <div class="row">
 
-<div class="container mt-4">
-  <div class="row">
+            <div class="col-md-4">
+                <div class="card-country">
+                    <img src="https://static.nationalgeographicbrasil.com/files/styles/image_3200/public/europa_pia19048.webp?w=1600&h=900"
+                        class="flag img-fluid" alt="Lua de Júpiter">
+                    <div class="card-body">
+                        <h5>Europa</h5>
+                        <p>Lua gelada de Júpiter</p>
+                        <p>Distância: 628,3 milhões de km da Terra</p>
+                        <p><strong>Observado: Missão Galileo</strong></p>
+                    </div>
+                </div>
+            </div>
 
-    <div class="col-md-4">
-      <div class="card-country">
-        <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1200&q=80" class="flag img-fluid" alt="Lua de Júpiter">
-        <div class="card-body">
-          <h5>Europa</h5>
-          <p>Lua gelada de Júpiter</p>
-          <p>Distância: 628,3 milhões de km da Terra</p>
-          <p><strong>Observado: Missão Galileo</strong></p>
+            <div class="col-md-4">
+                <div class="card-country">
+                    <img src="https://media.gettyimages.com/id/137195487/pt/v%C3%ADdeo/andromeda-galaxy-optical-image-andromeda-lying-only-2-5-million-light-years-away-is-the.jpg?s=640x640&k=20&c=SUl4q-908pjYms8qguBcOGGuBbANDQCnMaFjDcPGNMQ="
+                        class="flag img-fluid" alt="Galáxia espiral">
+                    <div class="card-body">
+                        <h5>Andrômeda</h5>
+                        <p>A galáxia espiral mais próxima da Via Láctea</p>
+                        <p>Distância: 2,5 milhões de anos-luz</p>
+                        <p><strong>Observado: Diversos telescópios terrestres</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card-country">
+                    <img src="https://www.shutterstock.com/image-illustration/betelgeuse-supergiant-star-constellation-orion-600nw-2226890195.jpg"
+                        class="flag img-fluid" alt="Estrela gigante vermelha">
+                    <div class="card-body">
+                        <h5>Betelgeuse</h5>
+                        <p>Estrela gigante vermelha da constelação de Órion</p>
+                        <p>Distância: 642 anos-luz da Terra</p>
+                        <p><strong>Observado: Telescópio Espacial James Webb</strong></p>
+                    </div>
+                </div>
+            </div>
+
         </div>
-      </div>
     </div>
 
-    <div class="col-md-4">
-      <div class="card-country">
-        <img src="https://images.unsplash.com/photo-1476610182048-b716b8518aae?auto=format&fit=crop&w=1200&q=80" class="flag img-fluid" alt="Galáxia espiral">
-        <div class="card-body">
-          <h5>Andrômeda</h5>
-          <p>A galáxia espiral mais próxima da Via Láctea</p>
-          <p>Distância: 2,5 milhões de anos-luz</p>
-          <p><strong>Observado: Diversos telescópios terrestres</strong></p>
-        </div>
-      </div>
-    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
 
-    <div class="col-md-4">
-      <div class="card-country">
-        <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1200&q=80" class="flag img-fluid" alt="Estrela gigante vermelha">
-        <div class="card-body">
-          <h5>Betelgeuse</h5>
-          <p>Estrela gigante vermelha da constelação de Órion</p>
-          <p>Distância: 642 anos-luz da Terra</p>
-          <p><strong>Observado: Telescópio Espacial James Webb</strong></p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-  
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-  </body>
 </html>
