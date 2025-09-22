@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Projeto da Nasa</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-        <link rel="stylesheet" href="Index.css">
+        <link rel="stylesheet" href="sobre_projeto.css">
   </head>
   
   <body>
@@ -27,9 +27,63 @@
   </div>
 </nav>
 
-<script>
-  document.write("Sobre o Projeto")
-</script>
+
+<main>
+  <div id="projeto">
+    <div class="container">
+      <h2>Sobre o Projeto</h2>
+      <p>
+        Este projeto foi proposto pelo professor Diogo Paulino e desenvolvido por Samara Gonçalves.
+        Ele utiliza dados públicos da NASA para explorar informações do espaço em tempo real. 
+        O projeto mostra fotos diárias da NASA, curiosidades sobre Marte e outros planetas, 
+        e meteoros que passam próximos da Terra.
+      </p>
+    </div>
+  </div>
+
+  <div id="areas">
+    <div class="container">
+      <h2>Áreas do Projeto</h2>
+      <div class="curiosidades-cards">
+        <div class="card-country">
+          <div class="card-body">
+            <h5>Fotos diárias da NASA</h5>
+            <p>Imagens tiradas por missões da NASA todos os dias, incluindo Marte, espaço profundo e observatórios.</p>
+          </div>
+        </div>
+        <div class="card-country">
+          <div class="card-body">
+            <h5>Curiosidades</h5>
+            <p>Informações interessantes sobre Marte, planetas, luas e eventos astronômicos.</p>
+          </div>
+        </div>
+        <div class="card-country">
+          <div class="card-body">
+            <h5>Meteoros próximos da Terra</h5>
+            <p>Dados de meteoros que passam próximos da Terra, mostrando velocidade, distância e datas de aproximação.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="curiosidades-rapidas">
+    <div class="container">
+      <h2>Curiosidades rápidas</h2>
+      <ul>
+        <li>Marte tem duas luas: Fobos e Deimos</li>
+        <li>Perseverance chegou em 18/02/2021</li>
+        <li>Meteoros próximos podem passar a velocidades de até 70 km/s</li>
+        <li>A NASA publica fotos do espaço diariamente</li>
+      </ul>
+      <p>Saiba mais em <a href="https://api.nasa.gov" target="_blank">NASA API</a></p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>Créditos: NASA API | Projeto proposto pelo professor Diogo Paulino | Desenvolvido por Samara Gonçalves</p>
+</footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   </body>

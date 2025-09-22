@@ -29,7 +29,8 @@
 
   <div class="container mt-4">
     <h2>Asteroides próximos à Terra</h2>
-    <div id="asteroid-gallery" class="row g-0"></div>
+    <div id="asteroid-gallery" class="row g-0">
+    </div>
   </div>
 
   <script>const KEY = "v6mwGEzjfWieSldtxAbmeOEPmk8K3sH1vSd25bLg"; // sua chave NASA
@@ -44,7 +45,7 @@ async function carregarAsteroides() {
 
     const asteroides = data.near_earth_objects[hoje];
     if (!asteroides || asteroides.length === 0) {
-      galeria.innerHTML = "<p>❌ Nenhum asteroide próximo da Terra hoje.</p>";
+      galeria.innerHTML = "<p> Nenhum asteroide próximo da Terra hoje.</p>";
       return;
     }
 
@@ -55,28 +56,22 @@ async function carregarAsteroides() {
       const card = document.createElement("div");
       card.classList.add("card-country");
 
-      // título (nome completo do asteroide)
       const titulo = document.createElement("h5");
       titulo.textContent = asteroide.name;
       card.appendChild(titulo);
 
-      // texto explicativo mais longo
       const texto = document.createElement("p");
 
-      // Distância mínima em km
       const missDistanceKm = parseFloat(asteroide.close_approach_data[0].miss_distance.kilometers).toFixed(0);
 
-      // Tamanho estimado em metros
       const minDiametro = parseFloat(asteroide.estimated_diameter.meters.estimated_diameter_min).toFixed(1);
       const maxDiametro = parseFloat(asteroide.estimated_diameter.meters.estimated_diameter_max).toFixed(1);
 
-      // Velocidade em km/h
       const velocidade = parseFloat(asteroide.close_approach_data[0].relative_velocity.kilometers_per_hour).toFixed(0);
 
       texto.textContent = `O asteroide ${asteroide.name} passará próximo da Terra em ${asteroide.close_approach_data[0].close_approach_date}. Ele possui tamanho estimado entre ${minDiametro} m e ${maxDiametro} m de diâmetro e viajará a aproximadamente ${velocidade} km/h. A distância mínima prevista da Terra é de ${missDistanceKm} km.`;
       card.appendChild(texto);
 
-      // link para mais informações
       const link = document.createElement("a");
       link.href = asteroide.nasa_jpl_url;
       link.textContent = "Mais informações";
@@ -90,18 +85,14 @@ async function carregarAsteroides() {
 
   } catch (err) {
     console.error("Erro ao carregar asteroides:", err);
-    galeria.innerHTML = "<p>❌ Erro ao carregar os dados.</p>";
+    galeria.innerHTML = "<p>Erro ao carregar os dados.</p>";
   }
 }
 
 carregarAsteroides();
-    
   </script>
-
-</body>
-</html>
-</script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
+    </script>
   </body>
 </html>

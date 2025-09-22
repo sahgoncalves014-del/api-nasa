@@ -26,77 +26,78 @@
     </div>  
   </div>
 </nav>
-<div id="mars-gallery" class="row g-0"></div>
+
+<div id="mars-gallery" class="container"></div>
 
 <script>
 const KEY = "v6mwGEzjfWieSldtxAbmeOEPmk8K3sH1vSd25bLg";
 const galeria = document.getElementById("mars-gallery");
-galeria.innerHTML = "";
+const NUM_FOTOS = 12;
 
-async function carregarFotosMarte() {
+const CAMERAS_BOAS = ["Mast Camera", "Chemistry and Camera complex"];
+
+async function carregarFotos() {
   try {
-    // Pega fotos recentes do rover Curiosity
-    const res = await fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/latest_photos?api_key=${KEY}`);
+    const res = await fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=${KEY}`);
     const data = await res.json();
 
-    if (!data.latest_photos || data.latest_photos.length === 0) {
-      galeria.innerHTML = "<p>❌ Nenhuma foto de Marte disponível no momento.</p>";
+    if(!data || !data.photos || data.photos.length === 0){
+      galeria.innerHTML = "<p>Nenhuma foto encontrada.</p>";
       return;
     }
 
-    const fotosUsadas = new Set();
-    const fotosSelecionadas = [];
+    const fotosBoas = data.photos.filter(foto => CAMERAS_BOAS.includes(foto.camera.full_name));
 
-    // Seleciona fotos únicas por câmera para evitar repetição
-    for (const foto of data.latest_photos) {
-      if (fotosUsadas.has(foto.camera.name)) continue;
-      fotosUsadas.add(foto.camera.name);
-      fotosSelecionadas.push(foto);
-      if (fotosSelecionadas.length >= 4) break;
+    if(fotosBoas.length === 0){
+      galeria.innerHTML = "<p>Nenhuma foto de qualidade encontrada.</p>";
+      return;
     }
 
-    fotosSelecionadas.forEach(foto => {
+    const fotos = fotosBoas.slice(0, NUM_FOTOS);
+
+    galeria.innerHTML = "<div class='row'></div>";
+    const row = galeria.querySelector(".row");
+
+    fotos.forEach(foto => {
       const col = document.createElement("div");
-      col.classList.add("col-md-3", "p-2"); // cada card ocupa 1/4 da linha e sem espaçamento extra
+      col.className = "col-12 col-md-6 col-lg-3 d-flex";
+      col.style.marginBottom = "20px";
 
       const card = document.createElement("div");
-      card.classList.add("card-country");
+      card.className = "card-country flex-fill";
 
-      // imagem
       const img = document.createElement("img");
       img.src = foto.img_src;
       img.alt = foto.camera.full_name;
-      img.classList.add("flag");
+      img.className = "flag"; 
       card.appendChild(img);
 
-      // corpo do card
-      const cardBody = document.createElement("div");
-      cardBody.classList.add("card-body");
+      const body = document.createElement("div");
+      body.className = "card-body";
 
       const titulo = document.createElement("h5");
-      titulo.textContent = foto.camera.full_name;
-      cardBody.appendChild(titulo);
+      titulo.textContent = `Câmera: ${foto.camera.full_name}`;
 
-      const texto = document.createElement("p");
-      texto.textContent = `O rover ${foto.rover.name} capturou esta imagem usando a câmera ${foto.camera.full_name}.`;
-      cardBody.appendChild(texto);
+      const roverInfo = document.createElement("p");
+      roverInfo.textContent = `Robô: ${foto.rover.name}`;
 
-      const dataEl = document.createElement("p");
-      dataEl.textContent = foto.earth_date;
-      cardBody.appendChild(dataEl);
+      const descricao = document.createElement("p");
+      descricao.textContent = `Data: ${foto.earth_date}`;
 
-      card.appendChild(cardBody);
+      body.appendChild(titulo);
+      body.appendChild(roverInfo);
+      body.appendChild(descricao);
+      card.appendChild(body);
+
       col.appendChild(card);
-      galeria.appendChild(col);
+      row.appendChild(col);
     });
-
-  } catch (err) {
-    console.error("Erro ao carregar fotos de Marte", err);
-    galeria.innerHTML = "<p>❌ Erro ao carregar as fotos.</p>";
+  } catch(e) {
+    galeria.innerHTML = "<p>Erro ao carregar imagens.</p>";
   }
 }
 
-carregarFotosMarte();
+carregarFotos();
 </script>
 
 

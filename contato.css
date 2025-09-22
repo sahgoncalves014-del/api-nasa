@@ -1,0 +1,117 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, black 25%, #00008B );
+    color: #ffffff;
+}
+
+.navbar {
+    background: linear-gradient(90deg, #00008B 0.3%, black );
+    box-shadow: 0 2px 5px #8b0000, #0b0c2a;
+}
+
+.navbar .nav-link {
+    color: #ffffff ;
+}
+
+.navbar .nav-link:hover {
+    color: #ffd700 ; 
+}
+
+.navbar .navbar-nav .nav-link {
+    color: #ffffff !important;
+    margin-right: 15px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.navbar .navbar-nav .nav-link:hover {
+    color: #ffd700 !important;
+}
+
+.navbar-toggler-icon {
+    filter: invert(1); 
+}
+
+.navbar img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+main, #contato {
+    flex: 1; 
+}
+
+#contato {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+#contato .container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#contato h2 {
+    color: #ff4444;
+    margin-bottom: 20px;
+}
+
+#contato p {
+    color: #cccccc;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+#form-contato input,
+#form-contato textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: none;
+    font-size: 14px;
+    background-color: #1c1c44;
+    color: #fff;
+}
+
+#form-contato textarea {
+    resize: vertical;
+    height: 120px;
+}
+
+#form-contato button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    background-color: #ff4444; 
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: none; 
+}
+
+#form-contato button:hover {
+    background-color: #ff4444;
+    color: #fff;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background: linear-gradient(135deg, #00008B 25%, black);
+    color: #ffffff;
+    font-size: 14px;
+    box-shadow: 0 -2px 5px #8b0000, #0b0c2a;
+}
+
+@media (max-width: 576px) {
+    #contato .container {
+        padding: 0 10px;
+    }
+}
